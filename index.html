@@ -234,16 +234,40 @@
               </div>
             </div>
             <div class="col">
-              <form class="form-control">
+              <form
+                class="form-control"
+                action="https://script.google.com/macros/s/AKfycbxuHXu8HUV7-bfpcZQzWJWrIh_i5sOyxb6JKwlAcBL8OuO-fQS_wFxItstLyWK0av7K/exec"
+                method="post"
+              >
                 <div class="form-inputs">
-                  <input type="text" class="input-field" placeholder="Name" />
-                  <input type="text" class="input-field" placeholder="Email" />
+                  <input
+                    type="text"
+                    class="input-field"
+                    placeholder="Name"
+                    name="Name"
+                    required
+                  />
+                  <input
+                    type="text"
+                    class="input-field"
+                    placeholder="Email"
+                    name="Email"
+                    required
+                  />
                 </div>
                 <div class="text-area">
-                  <textarea placeholder="Message"></textarea>
+                  <textarea
+                    placeholder="Message"
+                    name="Message"
+                    required
+                  ></textarea>
                 </div>
                 <div class="form-button">
-                  <button class="btn">
+                  <button
+                    class="btn"
+                    type="submit"
+                    style="padding-left: 55px; padding-right: 55px"
+                  >
                     Send <i class="uil uil-message"></i>
                   </button>
                 </div>

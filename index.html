@@ -235,12 +235,14 @@
             </div>
             <div class="col">
               <form
+                name="submit_to_google_sheet"
                 class="form-control"
-                action="https://script.google.com/macros/s/AKfycbxuHXu8HUV7-bfpcZQzWJWrIh_i5sOyxb6JKwlAcBL8OuO-fQS_wFxItstLyWK0av7K/exec"
+                action="https://script.google.com/macros/s/AKfycbxAkBnCdfbgdy-7XfCERw_dPek3iy8Fkmw1HgMW5oW7bTxxiTw6AdbsdlR0LiqJM2jfCg/exec"
                 method="post"
               >
                 <div class="form-inputs">
                   <input
+                    id="Name"
                     type="text"
                     class="input-field"
                     placeholder="Name"
@@ -248,6 +250,7 @@
                     required
                   />
                   <input
+                    id="Email"
                     type="text"
                     class="input-field"
                     placeholder="Email"
@@ -257,6 +260,7 @@
                 </div>
                 <div class="text-area">
                   <textarea
+                    id="Message"
                     placeholder="Message"
                     name="Message"
                     required
@@ -264,6 +268,7 @@
                 </div>
                 <div class="form-button">
                   <button
+                    id="submit_msg"
                     class="btn"
                     type="submit"
                     style="padding-left: 55px; padding-right: 55px"
@@ -272,6 +277,7 @@
                   </button>
                 </div>
               </form>
+              <div id="msg"></div>
             </div>
           </div>
         </section>
@@ -332,5 +338,20 @@
 
     <!-- ----- MAIN JS ----- -->
     <script src="assets/js/main.js"></script>
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbxAkBnCdfbgdy-7XfCERw_dPek3iy8Fkmw1HgMW5oW7bTxxiTw6AdbsdlR0LiqJM2jfCg/exec";
+      const form = document.forms["submit_to_google_sheet"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => alert("Thank You!"))
+          .then(() => {
+            window.location.reload();
+          })
+          .catch((error) => console.error("Error:", error.message));
+      });
+    </script>
   </body>
 </html>
